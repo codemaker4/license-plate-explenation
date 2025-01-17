@@ -1,35 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>license plate explenation</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>An Edge-Based Approach to Automatic License Plate Recognition Under Adverse Environmental Conditions</h1>
-        <h2>What does that even mean?</h2>
-        <p>A summery by Dennis, Finn, Gökay and Thijs</p>
-        <p>Based on research by C Molier</p>
-    </header>
-    <main>
-        <section>
-            <h2>Okay, first some backstory</h2>
-            <p>Here, Finn will explain will describe the problem this paper tries to solve</p>
-        </section>
-        <section>
-            <h2>What is "Edge-Based", and why is it so hard?</h2>
-            <p>Next, Gökay will explain "Edge-Based" computer stuff and why it is so hard</p>
-        </section>
-        <section>
-            <h2>Let's enhance them images!</h2>
-            <p>Then, Thijs will explain how we can enhance images to make it easier for the computer to find the license plate</p>
-        </section>
-        <section>
-            <h2>Nice, but how do we actually read the license plate?</h2>
-            <p>Finally, Dennis will explain how we can find and read the license plate in the enhanced image</p>
-        </section>
-    </main>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>License plate explanation</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="animations.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>
+				An Edge-Based Approach to Automatic License Plate Recognition
+				Under Adverse Environmental Conditions
+			</h1>
+			<h2>What does that even mean?</h2>
+			<p>A summary by Dennis, Finn, Gökay and Thijs</p>
+			<p>Based on research by C Molier</p>
+		</header>
+		<main>
+			<section>
+				<h2>Okay, first some backstory</h2>
+				<p>
+					Here, Finn will explain will describe the problem this paper
+					tries to solve
+				</p>
+			</section>
+			<section>
+				<h2>What is "Edge-Based", and why is it so hard?</h2>
+				<div class="glass-container">
+					<div class="content-container main-explanation">
+						<div class="text-content">
+							<div class="highlight-box">
+								<span class="highlight-icon">💡</span>
+								<p>
+									Edge computing moves computational tasks
+									closer to where the data is generated, so at
+									the "edge" of the network. Instead of
+									sending all the data to a distant server,
+									the processing happens directly on or near
+									the source device. This could be anything
+									like basic data filtering on IoT sensors or
+									complex AI processing on security cameras.
+									Edge-based computing provides reduced
+									latency, bandwidth savings, and improved
+									privacy since data doesn't get send to a
+									distant server.
+								</p>
+							</div>
+							<div class="interactive-demo">
+								<h3>Try it yourself!</h3>
+								<div class="demo-container">
+									<div class="demo-controls">
+										<button
+											class="demo-btn"
+											id="traditional"
+											disabled
+										>
+											<span class="btn-text"
+												>Run Traditional</span
+											>
+											<div
+												class="loading-spinner hidden"
+											></div>
+										</button>
+										<button
+											class="demo-btn"
+											id="edge"
+											disabled
+										>
+											<span class="btn-text"
+												>Run Edge-Based</span
+											>
+											<div
+												class="loading-spinner hidden"
+											></div>
+										</button>
+									</div>
+									<div class="demo-visualization">
+										<div class="device-container">
+											<div class="device camera-device">
+												<span class="device-icon"
+													>📷</span
+												>
+												<div
+													class="device-status"
+												></div>
+											</div>
+											<div class="network-container">
+												<div class="network-path"></div>
+												<div class="data-packets"></div>
+											</div>
+											<div class="device server-device">
+												<span class="device-icon"
+													>🖥️</span
+												>
+												<div
+													class="device-status"
+												></div>
+											</div>
+										</div>
+										<div class="metrics-container">
+											<div class="latency-meter">
+												<div class="latency-label">
+													Latency:
+												</div>
+												<div class="latency-bar">
+													<div
+														class="latency-fill"
+													></div>
+												</div>
+												<div class="latency-value">
+													0ms
+												</div>
+											</div>
+											<div class="bandwidth-meter">
+												<div class="bandwidth-label">
+													Bandwidth:
+												</div>
+												<div class="bandwidth-bar">
+													<div
+														class="bandwidth-fill"
+													></div>
+												</div>
+												<div class="bandwidth-value">
+													0 MB/s
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="content-container architecture-section">
+						<h3 class="animated-title">Technical Architecture</h3>
+						<div class="architecture-grid">
+							<div class="arch-component hardware">
+								<div class="arch-icon">🔧</div>
+								<h4>Hardware Layer</h4>
+								<div class="tech-details">
+									<div class="tech-item">
+										<span class="tech-icon">⚡</span>
+										<div class="tech-info">
+											<h5>Processing Units</h5>
+											<p>
+												From simple microcontrollers to
+												specialized processors
+											</p>
+										</div>
+									</div>
+									<div class="tech-item">
+										<span class="tech-icon">💾</span>
+										<div class="tech-info">
+											<h5>Memory Management</h5>
+											<p>
+												Local storage and efficient data
+												handling
+											</p>
+										</div>
+									</div>
+									<div class="tech-item">
+										<span class="tech-icon">🔋</span>
+										<div class="tech-info">
+											<h5>Power Optimization</h5>
+											<p>
+												Energy-efficient operation for
+												battery-powered devices
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="arch-component software">
+								<div class="arch-icon">💻</div>
+								<h4>Software Layer</h4>
+								<div class="tech-details">
+									<div class="tech-item">
+										<span class="tech-icon">🔄</span>
+										<div class="tech-info">
+											<h5>Processing Logic</h5>
+											<p>
+												Data filtering, basic analytics,
+												or AI inference
+											</p>
+										</div>
+									</div>
+									<div class="tech-item">
+										<span class="tech-icon">⚙️</span>
+										<div class="tech-info">
+											<h5>Runtime Environment</h5>
+											<p>
+												Lightweight operating system or
+												bare metal
+											</p>
+										</div>
+									</div>
+									<div class="tech-item">
+										<span class="tech-icon">📊</span>
+										<div class="tech-info">
+											<h5>Resource Management</h5>
+											<p>
+												Efficient task handling and
+												scheduling
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="arch-component network">
+								<div class="arch-icon">🌐</div>
+								<h4>Network Layer</h4>
+								<div class="tech-details">
+									<div class="tech-item">
+										<span class="tech-icon">📡</span>
+										<div class="tech-info">
+											<h5>Protocol Optimization</h5>
+											<p>
+												Efficient data transfer
+												protocols
+											</p>
+										</div>
+									</div>
+									<div class="tech-item">
+										<span class="tech-icon">🗜️</span>
+										<div class="tech-info">
+											<h5>Data Compression</h5>
+											<p>
+												Advanced compression algorithms
+											</p>
+										</div>
+									</div>
+									<div class="tech-item">
+										<span class="tech-icon">🔒</span>
+										<div class="tech-info">
+											<h5>Security Measures</h5>
+											<p>
+												Encrypted communication channels
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="content-container performance-section">
+						<h3 class="animated-title">
+							Performance Considerations
+						</h3>
+						<div class="performance-metrics">
+							<div class="metric-card" id="latencyMetric">
+								<h4>Latency</h4>
+								<div class="metric-value">~10-50ms</div>
+								<div class="metric-bar"></div>
+								<p>
+									Edge processing typically achieves sub-50ms
+									latency, compared to 100-1000ms in cloud
+									processing.
+								</p>
+							</div>
+							<div class="metric-card" id="bandwidthMetric">
+								<h4>Bandwidth Usage</h4>
+								<div class="metric-value">Reduced by 80%+</div>
+								<div class="metric-bar"></div>
+								<p>
+									Only processed results are transmitted, not
+									raw data.
+								</p>
+							</div>
+							<div class="metric-card" id="powerMetric">
+								<h4>Power Efficiency</h4>
+								<div class="metric-value">Variable</div>
+								<div class="metric-bar"></div>
+								<p>
+									Depends on optimization level and hardware
+									capabilities.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="content-container code-section">
+						<h3 class="animated-title">Implementation Example</h3>
+						<div class="code-container">
+							<div class="code-tabs">
+								<button
+									class="tab-btn active"
+									data-tab="traditional"
+								>
+									Traditional Approach
+								</button>
+								<button class="tab-btn" data-tab="edge">
+									Edge-Based Approach
+								</button>
+							</div>
+							<div class="code-content">
+								<pre
+									class="code-block"
+									id="traditionalCode"
+								><code class="language-python"># Traditional Cloud-Based Processing
+import requests
+from time import sleep
+
+class TraditionalProcessor:
+    def __init__(self, server_url):
+        self.server_url = server_url
+        
+    def process_data(self, data):
+        # Send raw data to cloud
+        response = requests.post(
+            f"{self.server_url}/process",
+            data=data,
+            timeout=30
+        )
+        
+        # Wait for server processing
+        while not response.ok:
+            sleep(0.1)
+            response = requests.get(
+                f"{self.server_url}/status"
+            )
+            
+        return response.json()['result']</code></pre>
+								<pre
+									class="code-block hidden"
+									id="edgeCode"
+								><code class="language-python"># Edge-Based Processing
+class EdgeProcessor:
+    def __init__(self):
+        self.threshold = 100  # Example threshold
+        
+    def process_data(self, data):
+        # Process data locally
+        if self._should_process(data):
+            result = self._local_processing(data)
+            return result
+        
+        # Only send to cloud if needed
+        return self._send_to_cloud(data)
+    
+    def _should_process(self, data):
+        # Local decision making
+        return len(data) < self.threshold
+        
+    def _local_processing(self, data):
+        # Example: Basic data filtering
+        return [x for x in data if x > 0]</code></pre>
+							</div>
+						</div>
+					</div>
+
+					<div class="content-container challenges-section">
+						<h3 class="animated-title">
+							Why is Edge-Based So Hard?
+						</h3>
+						<div class="deep-dive-container">
+							<div class="deep-dive-card">
+								<h4>The Optimization Challenge</h4>
+								<div class="visualization-container">
+									<div class="model-size-comparison">
+										<div class="cloud-model">
+											<span class="model-label"
+												>☁️ Cloud: Unlimited
+												Resources</span
+											>
+											<div class="model-bar"></div>
+										</div>
+										<div class="edge-model">
+											<span class="model-label"
+												>📱 Edge: Limited
+												Resources</span
+											>
+											<div class="model-bar"></div>
+										</div>
+									</div>
+								</div>
+								<p>
+									Edge devices must do at least the same with
+									less. While cloud servers have virtually
+									unlimited resources, edge devices must
+									process data with limited CPU, memory, and
+									storage. This requires careful optimization
+									of algorithms and resource usage.
+								</p>
+							</div>
+
+							<div class="deep-dive-card">
+								<h4>The Power Struggle</h4>
+								<div class="power-comparison">
+									<div class="power-usage cloud">
+										<span class="power-label"
+											>⚡ Cloud Server: Always
+											Powered</span
+										>
+										<div class="power-indicator"></div>
+									</div>
+									<div class="power-usage edge">
+										<span class="power-label"
+											>⚡ Edge Device: Limited Power</span
+										>
+										<div class="power-indicator"></div>
+									</div>
+								</div>
+								<p>
+									Many edge devices run on batteries or
+									limited power sources. This means every
+									computation must try to maximize power
+									efficiency, unlike cloud servers that have a
+									constant power supply.
+								</p>
+							</div>
+
+							<div class="deep-dive-card">
+								<h4>Real-World Complexity</h4>
+								<div class="environment-challenges">
+									<div class="challenge-icon">🌡️</div>
+									<div class="challenge-icon">💨</div>
+									<div class="challenge-icon">🌧️</div>
+									<div class="challenge-icon">📶</div>
+								</div>
+								<p>
+									Unlike servers in climate-controlled data
+									centers, edge devices must work in sometimes
+									extreme scenarios in the real world. They
+									face extreme temperatures (-20°C to +50°C),
+									dust, rain, and unreliable networks. Every
+									component must be designed to handle these
+									conditions while maintaining performance.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Let's enhance them images!</h2>
+				<p>
+					Then, Thijs will explain how we can enhance images to make
+					it easier for the computer to find the license plate
+				</p>
+			</section>
+			<section>
+				<h2>Nice, but how do we actually read the license plate?</h2>
+				<p>
+					Finally, Dennis will explain how we can find and read the
+					license plate in the enhanced image
+				</p>
+			</section>
+		</main>
+	</body>
 </html>
