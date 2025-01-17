@@ -15,7 +15,7 @@
 			</h1>
 			<h2>What does that even mean?</h2>
 			<p>A summary by Dennis, Finn, Gökay and Thijs</p>
-			<p>Based on research by C Molier</p>
+			<p>Based on <a href="https://scripties.uba.uva.nl/search?id=record_54530">research</a> by C Molier</p>
 		</header>
 		<main>
 			<section>
@@ -438,10 +438,196 @@ class EdgeProcessor:
 			</section>
 			<section>
 				<h2>Let's enhance them images!</h2>
-				<p>
+				<!-- <p>
 					Then, Thijs will explain how we can enhance images to make
 					it easier for the computer to find the license plate
-				</p>
+				</p> -->
+				<div class="glass-container">
+					<div class="content-container main-explanation">
+						<div class="text-content">
+							<div class="highlight-box">
+								<span class="highlight-icon">💡</span>
+								<p>
+									Image enhancement is a set of techniques used
+									to improve the quality of an image. This is
+									done as a preprocessing step in preperation
+									for the actual license plate recognition.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="content-container">
+						<div class="text-content">
+							<h3>Contrast enhancement</h3>
+							<p>
+								The illumination in the bunker from sunlight is limited,
+								and despite the artificial light sources, the contrast
+								of the images is too low. To increase the contrast, the
+								histogram equalization is applied to the images.
+								Histogram equalization works by transforming the intensity
+								values of the image such that the histogram of the output
+								image is approximately flat. This means that the intensity
+								values are spread out over the entire range of possible
+								values, which increases the contrast of the image.
+							</p>
+							<div class="interactive-demo">
+								<h3>Try it yourself!</h3>
+								<div class="demo-container">
+									<div class="demo-controls">
+										<button
+											class="demo-btn"
+											id="original"
+										>
+											<span class="btn-text"
+												>Original Image</span
+											>
+											<div
+												class="loading-spinner hidden"
+											></div>
+										</button>
+										<button
+											class="demo-btn"
+											id="enhanced"
+										>
+											<span class="btn-text"
+												>Enhanced Image</span
+											>
+											<div
+												class="loading-spinner hidden"
+											></div>
+										</button>
+									</div>
+									<div class="demo-visualization">
+										<div class="image-container">
+											<div class="image original-image">
+												<img
+													src="images/histeq-before.png"
+													alt="Original Image"
+												/>
+											</div>
+											<div class="image enhanced-image" style="opacity: 0;">
+												<img
+													src="images/histeq-after.png"
+													alt="Enhanced Image"
+												/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<a href="https://www.researchgate.net/figure/a-A-low-contrast-image-b-Histogram-of-a-c-Histogram-equalized-image-of-a-d_fig3_268240982">source</a>
+						</div>
+					</div>
+
+					<div class="content-container">
+						<div class="text-content">
+							<h3>Removing weather conditions</h3>
+							<p>
+								Although most of the facility has a roof, and thus there
+								is no rain to worry about, mist and dust can still be
+								present. To remove the effects of mist and dust, the
+								authors of the paper chose for a dark channel prior
+								algorithm. Although the algorithm works quite well,
+								it can create artifacts in the image. To remove these
+								artifacts, a guided filter is applied to the images.
+							</p>
+							<div class="interactive-demo">
+								<h3>Try it yourself!</h3>
+								<div class="demo-container">
+									<div class="demo-controls">
+										<button class="demo-btn" id="original-weather">
+											<span class="btn-text">Original Image</span>
+											<div class="loading-spinner hidden"></div>
+										</button>
+										<button class="demo-btn" id="dehazed">
+											<span class="btn-text">Dehazed Image</span>
+											<div class="loading-spinner hidden"></div>
+										</button>
+										<button class="demo-btn" id="filtered">
+											<span class="btn-text">Filtered Image</span>
+											<div class="loading-spinner hidden"></div>
+										</button>
+									</div>
+									<div class="demo-visualization">
+										<div class="image-container">
+											<div class="image original-weather-image">
+												<img src="images/weather-before.png" alt="Original Image" />
+											</div>
+											<div class="image dehazed-image" style="opacity: 0;">
+												<img src="images/weather-dehazed.png" alt="Dehazed Image" />
+											</div>
+											<div class="image filtered-image" style="opacity: 0;">
+												<img src="images/weather-filtered.png" alt="Filtered Image" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<a href="https://scripties.uba.uva.nl/search?id=record_54530">source</a>
+						</div>
+					</div>
+
+					<div class="content-container">
+						<div class="text-content">
+							<h3>Binarization</h3>
+							<p>
+								After the contrast enhancement, the images are binarized.
+								Binarization is the process of converting a grayscale
+								image to a binary image with only full black and white
+								pixels. This is done in preparation for the license plate
+								recognition. The binarization is done by applying a
+								canny edge detector to the images.
+							</p>
+						</div>
+						<div class="interactive-demo">
+							<h3>Try it yourself!</h3>
+							<div class="demo-container">
+								<div class="demo-controls">
+									<button
+										class="demo-btn"
+										id="original-edge"
+									>
+										<span class="btn-text"
+											>Original Image</span
+										>
+										<div
+											class="loading-spinner hidden"
+										></div>
+									</button>
+									<button
+										class="demo-btn"
+										id="binarized-edge"
+									>
+										<span class="btn-text"
+											>Binarized Image</span
+										>
+										<div
+											class="loading-spinner hidden"
+										></div>
+									</button>
+								</div>
+								<div class="demo-visualization">
+									<div class="image-container">
+										<div class="image wideimage original-edgedet-image">
+											<img
+												src="images/edgedet-before.png"
+												alt="Original Image"
+											/>
+										</div>
+										<div class="image wideimage binarized-edgedet-image" style="opacity: 0;">
+											<img
+												src="images/edgedet-after.png"
+												alt="Binarized Image"
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<a href="https://www.semanticscholar.org/paper/Canny-Edge-Detection-Based-Vehicle-Plate-Mousa/990b2ab794717ad9fbe85c2f3144e0c2e189c3a5">source</a>
+					</div>
+				</div>
 			</section>
 			<section>
 				<h2>Nice, but how do we actually read the license plate?</h2>

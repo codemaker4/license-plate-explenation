@@ -460,3 +460,214 @@ function simulateProcessing(elements, isTraditional) {
 		);
 	}
 }
+
+
+function initImageEnhancementDemo() {
+	const elements = {
+		originalBtn: document.getElementById("original"),
+		enhancedBtn: document.getElementById("enhanced"),
+		originalImage: document.querySelector(".original-image"),
+		enhancedImage: document.querySelector(".enhanced-image"),
+	};
+
+	setTimeout(() => {
+		elements.originalBtn.disabled = false;
+		elements.enhancedBtn.disabled = false;
+	}, 1000);
+
+	elements.originalBtn?.addEventListener("click", () =>
+		toggleImage(elements, true)
+	);
+	elements.enhancedBtn?.addEventListener("click", () =>
+		toggleImage(elements, false)
+	);
+}
+
+function toggleImage(elements, isOriginal) {
+	const btn = isOriginal ? elements.originalBtn : elements.enhancedBtn;
+	const spinner = btn.querySelector(".loading-spinner");
+	const btnText = btn.querySelector(".btn-text");
+
+	elements.originalBtn.disabled = true;
+	elements.enhancedBtn.disabled = true;
+	spinner.classList.remove("hidden");
+	btnText.style.opacity = "0.5";
+
+	const timeline = gsap.timeline({
+		onComplete: () => {
+			elements.originalBtn.disabled = false;
+			elements.enhancedBtn.disabled = false;
+			spinner.classList.add("hidden");
+			btnText.style.opacity = "1";
+		},
+	});
+
+	if (isOriginal) {
+		timeline.to(elements.enhancedImage, {
+			opacity: 0,
+			duration: 0.5,
+			ease: "power1.out",
+		});
+		timeline.to(elements.originalImage, {
+			opacity: 1,
+			duration: 0.5,
+			ease: "power1.out",
+		}, "-=0.5");
+	} else {
+		timeline.to(elements.originalImage, {
+			opacity: 0,
+			duration: 0.5,
+			ease: "power1.out",
+		});
+		timeline.to(elements.enhancedImage, {
+			opacity: 1,
+			duration: 0.5,
+			ease: "power1.out",
+		}, "-=0.5");
+	}
+}
+
+setTimeout(() => {
+	initImageEnhancementDemo();
+}, 1000);
+
+function initWeatherImageDemo() {
+	const elements = {
+		originalWeatherBtn: document.getElementById("original-weather"),
+		dehazedBtn: document.getElementById("dehazed"),
+		filteredBtn: document.getElementById("filtered"),
+		originalWeatherImage: document.querySelector(".original-weather-image"),
+		dehazedImage: document.querySelector(".dehazed-image"),
+		filteredImage: document.querySelector(".filtered-image"),
+	};
+
+	setTimeout(() => {
+		elements.originalWeatherBtn.disabled = false;
+		elements.dehazedBtn.disabled = false;
+		elements.filteredBtn.disabled = false;
+	}, 1000);
+
+	elements.originalWeatherBtn?.addEventListener("click", () =>
+		toggleWeatherImage(elements, "originalWeather")
+	);
+	elements.dehazedBtn?.addEventListener("click", () =>
+		toggleWeatherImage(elements, "dehazed")
+	);
+	elements.filteredBtn?.addEventListener("click", () =>
+		toggleWeatherImage(elements, "filtered")
+	);
+}
+
+function toggleWeatherImage(elements, type) {
+	const btn = elements[`${type}Btn`];
+	const spinner = btn.querySelector(".loading-spinner");
+	const btnText = btn.querySelector(".btn-text");
+
+	elements.originalWeatherBtn.disabled = true;
+	elements.dehazedBtn.disabled = true;
+	elements.filteredBtn.disabled = true;
+	spinner.classList.remove("hidden");
+	btnText.style.opacity = "0.5";
+
+	const timeline = gsap.timeline({
+		onComplete: () => {
+			elements.originalWeatherBtn.disabled = false;
+			elements.dehazedBtn.disabled = false;
+			elements.filteredBtn.disabled = false;
+			spinner.classList.add("hidden");
+			btnText.style.opacity = "1";
+		},
+	});
+
+	timeline.to(
+		[elements.originalWeatherImage, elements.dehazedImage, elements.filteredImage],
+		{
+			opacity: 0,
+			duration: 0.5,
+			ease: "power1.out",
+		}
+	);
+
+	timeline.to(
+		elements[`${type}Image`],
+		{
+			opacity: 1,
+			duration: 0.5,
+			ease: "power1.out",
+		},
+		"-=0.5"
+	);
+}
+
+setTimeout(() => {
+	initWeatherImageDemo();
+}, 1000);
+
+function initEdgeDetectionDemo() {
+	const elements = {
+		originalEdgeBtn: document.getElementById("original-edge"),
+		binarizedEdgeBtn: document.getElementById("binarized-edge"),
+		originalEdgeImage: document.querySelector(".original-edgedet-image"),
+		binarizedEdgeImage: document.querySelector(".binarized-edgedet-image"),
+	};
+
+	setTimeout(() => {
+		elements.originalEdgeBtn.disabled = false;
+		elements.binarizedEdgeBtn.disabled = false;
+	}, 1000);
+
+	elements.originalEdgeBtn?.addEventListener("click", () =>
+		toggleEdgeImage(elements, true)
+	);
+	elements.binarizedEdgeBtn?.addEventListener("click", () =>
+		toggleEdgeImage(elements, false)
+	);
+}
+
+function toggleEdgeImage(elements, isOriginal) {
+	const btn = isOriginal ? elements.originalEdgeBtn : elements.binarizedEdgeBtn;
+	const spinner = btn.querySelector(".loading-spinner");
+	const btnText = btn.querySelector(".btn-text");
+
+	elements.originalEdgeBtn.disabled = true;
+	elements.binarizedEdgeBtn.disabled = true;
+	spinner.classList.remove("hidden");
+	btnText.style.opacity = "0.5";
+
+	const timeline = gsap.timeline({
+		onComplete: () => {
+			elements.originalEdgeBtn.disabled = false;
+			elements.binarizedEdgeBtn.disabled = false;
+			spinner.classList.add("hidden");
+			btnText.style.opacity = "1";
+		},
+	});
+
+	if (isOriginal) {
+		timeline.to(elements.binarizedEdgeImage, {
+			opacity: 0,
+			duration: 0.5,
+			ease: "power1.out",
+		});
+		timeline.to(elements.originalEdgeImage, {
+			opacity: 1,
+			duration: 0.5,
+			ease: "power1.out",
+		}, "-=0.5");
+	} else {
+		timeline.to(elements.originalEdgeImage, {
+			opacity: 0,
+			duration: 0.5,
+			ease: "power1.out",
+		});
+		timeline.to(elements.binarizedEdgeImage, {
+			opacity: 1,
+			duration: 0.5,
+			ease: "power1.out",
+		}, "-=0.5");
+	}
+}
+
+setTimeout(() => {
+	initEdgeDetectionDemo();
+}, 1000);
