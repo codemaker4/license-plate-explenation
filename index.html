@@ -18,13 +18,13 @@
 			<p>Based on <a href="https://scripties.uba.uva.nl/search?id=record_54530">research</a> by C Molier</p>
 		</header>
 		<main>
-			<section>
+			<!-- <section>
 				<h2>Okay, first some backstory</h2>
 				<p>
 					Here, Finn will describe the problem this paper
 					tries to solve
 				</p>
-			</section>
+			</section> -->
 			<section>
 				<h2>What is "Edge-Based", and why is it so hard?</h2>
 				<div class="glass-container">
@@ -452,6 +452,11 @@ class EdgeProcessor:
 									to improve the quality of an image. This is
 									done as a preprocessing step in preperation
 									for the actual license plate recognition.
+									First, we enhance the contrast of the image
+									to make the license plate stand out more.
+									Then, we reduce the effects of weather
+									conditions, such as mist and dust. Finally,
+									we binarize the image using edge detection.
 								</p>
 							</div>
 						</div>
@@ -577,7 +582,8 @@ class EdgeProcessor:
 								image to a binary image with only full black and white
 								pixels. This is done in preparation for the license plate
 								recognition. The binarization is done by applying a
-								canny edge detector to the images.
+								canny edge detector to the images, which uses a multi-step
+								algorithm to detect edges without being affected by noise.
 							</p>
 						</div>
 						<div class="interactive-demo">
@@ -629,13 +635,13 @@ class EdgeProcessor:
 					</div>
 				</div>
 			</section>
-			<section>
+			<!-- <section>
 				<h2>Nice, but how do we actually read the license plate?</h2>
 				<p>
 					Finally, Dennis will explain how we can find and read the
 					license plate in the enhanced image
 				</p>
-			</section>
+			</section> -->
 		</main>
 	</body>
 </html>
